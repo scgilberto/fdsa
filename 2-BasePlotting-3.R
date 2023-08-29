@@ -36,6 +36,7 @@ ablineclip(v=6, lty=1, col="Sienna1", lwd=2)
 ablineclip(v=7, lty=1, col="Sienna1", lwd=2)
 
 plot(lynx)
+#efetuando diversos tipos de alterações.
 plot(lynx, type="p", main="Type p")
 plot(lynx, type="l", main="Type l")
 plot(lynx, type="b", main="Type b")
@@ -49,10 +50,15 @@ par(mar=c(4,3,3,3), col.axis="black")
 
 plot(cars$speed, type="s", col="red", bty="n", xlab="cars ID", ylab = "")
 text(8,14, "velocidade",cex=0.85, col="red")
+par(new = T)
 
 plot(cars$dist, type = "s", bty="n",ann = F, axes = F, col="darkblue")
 axis(side=4)
 text(37,18, "Distancia",cex=0.85, col="darkblue")
 title(main = "Velocidade x Distancia")
 
-
+#plots a partir de um DF
+df <- read.csv('pibpercap.csv', stringsAsFactors = F)
+df_1982 <- subset(df, ano == 1982)
+plot(expectativa ~ pibpercap, data = df_1982, log= "x")
+View(df)
