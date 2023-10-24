@@ -38,6 +38,21 @@ View(iris_modif)
 
 bwplot(Medidas ~ Species | Dimensões, data = iris_modif)
 
+iris_modif_sp <- reshape(iris,
+                         varying = list(c(1,3),c(2,4)),
+                         v.names = c("Comprimento","Largura"),
+                         timevar = "Parte",
+                         times = c("Sepal", "Petal"),
+                         idvar = "ID",
+                         direction = "long")
+
+xyplot(Comprimento ~ Largura | Species, groups = Parte,
+       data = iris_modif_sp, auto.key = list(space = "right"))
+
+
+xyplot(Comprimento ~ Largura | Parte, groups = Species,
+       data = iris_modif_sp, auto.key = list(space = "right"))
+
 
 
 
