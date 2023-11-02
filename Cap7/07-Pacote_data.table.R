@@ -64,19 +64,27 @@ dt4
 new_dt4 <- dt4[, sum(C), by = A]
 new_dt4
 class(new_dt4)
+#ordena o objeto
+new_dt4[order(A)]
+
+new_dt4 <- dt4[, sum(B), by = A][order(A)]
+new_dt4
 
 
+#aplicando o dataset iris
 
+dt5 <- as.data.table(iris)
+dt5
 
+dt5[, .(Sepal.Length = median(Sepal.Length),
+       Sepal.Width = median(Sepal.Width),
+       Petal.Length = median(Sepal.Length),
+       Petal.Width = median(Sepal.Width)),
+   by = Species]
 
+print('----------------------------------')
 
+#simplificando o codigo
+dt5[, lapply(.SD, median),by = Species]
 
-
-
-
-
-
-
-
-
-
+#o parametro SD significa Subset Data exclusivo do Data.table
