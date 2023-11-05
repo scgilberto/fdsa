@@ -21,3 +21,4 @@ library(tidyverse)
 
 #carregado a pagina web
 imdb <- read_html("https://www.imdb.com/chart/top/")
+
