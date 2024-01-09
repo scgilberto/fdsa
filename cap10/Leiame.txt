@@ -1,1 +1,6 @@
 Arquivos do capitulo 10
+
+
+Link para ajudar na construção de novos apps
+
+https://epirhandbook.com/pt/shiny-basics.html
